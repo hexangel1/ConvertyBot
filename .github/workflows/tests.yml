@@ -19,10 +19,9 @@ jobs:
       - name: install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install sphinx
           pip install pipenv
           pipenv install --dev --system --deploy
-          pybabel compile -D converty -d locales
       - name: sphinx build
         run: |
+          mkdir -p storage
           pytest source/test.py
